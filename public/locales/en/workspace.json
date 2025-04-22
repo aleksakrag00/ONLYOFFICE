@@ -1,0 +1,86 @@
+{
+  "PageTitle": "Your virtual digital workspace | ONLYOFFICE",
+  "PageDescription": "Create collaborative online workspace in the secure cloud or host it yourself. Work remotely using features of an online workspace. Manage projects and emails, collaborate on docs, chat in ONLYOFFICE Workspace.",
+
+  "HeroTitle": "ONLYOFFICE Workspace",
+  "HeroText": "Bundle of web apps for an efficient team management and online collaboration",
+  "GetItNowButton": "Get it now",
+
+  "ManageTitle": "Manage all your business processes",
+
+  "Icon1": "DOCUMENTS",
+  "Icon2": "MAILS",
+  "Icon3": "CRM",
+  "Icon4": "PROJECTS",
+  "Icon5": "CALENDAR",
+
+  "ManHeader1": "Documents",
+  "DocsContent1": "Store and organize business documentation. Share documents and manage access permissions for users and groups. Edit and collaborate on <1>text documents</1>, <2>spreadsheets</2>, <3>presentations</3>, <4>PDF files</4> and fillable <5>forms</5>.",
+  "DocsList1": "Highest compatibility with MS Office formats",
+  "DocsList2": "Multi-format media player",
+  "DocsList3": "Ready-to-fill-out online document forms",
+  "DocsList4": "Private rooms for end-to-end encrypted document collaboration",
+
+  "ManHeader2": "Mails",
+  "MailsContent1": "Keep your mailbox organized. Create corporate mailboxes on your domain or using the default one. Connect multiple email accounts, manage and tag messages. Create signature and make use of the template constructor.",
+  "MailsList1": "Support of common email protocols: POP3, SMTP, IMAP",
+  "MailsList2": "Unlimited number of mailboxes and mail groups",
+  "MailsList3": "Free default domain",
+
+  "ManHeader3": "CRM",
+  "CrmContent1": "Organize your business workflow from lead generation to order fulfilment. Create reports and monitor your team’s progress.",
+  "CrmList1": "Web-to-Lead form for rapid entry of potential customers",
+  "CrmList2": "Making calls with Twilio",
+  "CrmList3": "Close integration with Mail, Projects, and Calendar",
+
+  "ManHeader4": "Projects",
+  "ProContent1": "Organize your team for success. Create projects, prioritize tasks, and set deadlines. Track time and generate reports to analize your team’s productivity.",
+  "ProList1": "Gantt chart",
+  "ProList2": "Private projects and access rights management",
+  "ProList3": "Integration with Documents, Calendar, and CRM",
+
+  "ManHeader5": "Calendar",
+  "CalContent1": "Manage your time wisely : create a personal or team timetable, add different event types, and set reminders to never miss a thing.",
+  "CalList1": "Calendar sharing",
+  "CalList2": "Synchronization with third-party applications",
+  "CalList3": "Close integration with all ONLYOFFICE modules",
+
+  "VideoHeader": "ONLYOFFICE Workspace 12.5:",
+  "VideoContent": " enhanced security, optimized document management, Dark theme, and more",
+
+  "GettingHeader": "Getting started is easy",
+  "GettingDescription": "Use ONLYOFFICE Workspace in the cloud, host it yourself, or launch a pre-configured installation.",
+
+  "GettingItem1Header": "OVHcloud Marketplace",
+  "GettingItem1Description": "One-click install, auto-update",
+  "GettingItem1Button": "GET STARTED",
+  "GettingItem1ButtonLink": "https://marketplace.ovhcloud.com/p/onlyoffice-enterprise?categoryPath=collaboration/suites-collaboratives-et-productivite",
+
+  "GettingItem2Header": "Self-Hosted",
+  "GettingItem2Description": "Host on your premises",
+  "GettingItem2Button": "GET STARTED",
+  "GettingItem2ButtonLink": "https://www.onlyoffice.com/download-workspace.aspx?from=workspace",
+
+  "GettingItem3Header": "AWS Marketplace",
+  "GettingItem3Description": "One-click install, auto-update",
+  "GettingItem3Button": "GET STARTED",
+  "GettingItem3ButtonLink": "https://aws.amazon.com/marketplace/seller-profile?id=b2557f65-4b3a-4b0e-a96a-d9a9d3b45b60",
+
+  "GettingOutro": "Community version for home use is available for download ",
+
+  "WhyHeader": "Why ONLYOFFICE Workspace",
+  "WhyDescription": "Benefits of an online workspace",
+
+  "WhyItem1Header": "Third-party service integration",
+  "WhyItem1Content": "Extend your workspace functionality with your favorites apps and tools for logging, signing, authentication, or storage.",
+  "WhyItem1LinkText": "Find the apps you need",
+  "WhyItem1Link": "https://www.onlyoffice.com/app-directory",
+
+  "WhyItem2Header": "Data security and control",
+  "WhyItem2Content": "Data encryption at rest and in transit. LDAP/Active Directory authentication. Activity tracking, audit reporting, and more.",
+  "WhyItem2LinkText": "Learn more",
+  "WhyItem2Link": "https://www.onlyoffice.com/security.aspx?from=workspace",
+
+  "WhyItem3Header": "Administration and customization",
+  "WhyItem3Content": "Manage your digital workspace using an intuitive control panel. Personalize it with built-in color schemes, replace logos, titles, links, set Light or Dark interface theme."
+}

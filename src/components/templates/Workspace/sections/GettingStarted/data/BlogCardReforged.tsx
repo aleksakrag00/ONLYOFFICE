@@ -3,7 +3,7 @@ import {
   StyledBlogCardImg,
   StyledBlogCardBody,
   StyledBlogCardWrapper,
-} from "@src/components/widgets/BlogCard/BlogCard.styled";
+} from "./BlogCardReforged.styled";
 import { IBlogCardReforged } from "./BlogCardReforged.types";
 import { Link } from "@src/components/ui/Link";
 import { Heading } from "@src/components/ui/Heading";
@@ -24,7 +24,11 @@ const BlogCardReforged = ({
 }: IBlogCardReforged) => {
   return (
     <StyledBlogCard id={id} className={className} $isLarge={isLarge}>
-      <StyledBlogCardImg $imgUrl={imgUrl} $isLarge={isLarge} />
+      <StyledBlogCardImg
+        src={imgUrl}
+        alt={heading?.label || "Blog image"}
+        $isLarge
+      />
 
       <StyledBlogCardBody>
         <StyledBlogCardWrapper $isLarge={isLarge}>
@@ -68,6 +72,7 @@ const BlogCardReforged = ({
           href={buttonLink}
           label={button}
           target={targetBlank ? "_blank" : undefined}
+          size="small"
         />
       </StyledBlogCardBody>
     </StyledBlogCard>

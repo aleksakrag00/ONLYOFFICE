@@ -15,7 +15,7 @@ const ManageProcesses = () => {
   const { t } = useTranslation("workspace");
 
   return (
-    <StyledHowToStart id="how-to-start" background="#f9f9f9">
+    <StyledHowToStart id="how-to-start" background="#ffffff">
       <Container>
         <Heading level={2} textAlign="center" label={t("ManageTitle")} />
 

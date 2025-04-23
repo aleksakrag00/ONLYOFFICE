@@ -62,6 +62,7 @@ const GettingStarted = () => {
               targetBlank={item.buttonOpen}
               className="blog-card"
               key={index}
+              isLarge={false}
               imgUrl={item.imgUrl}
               heading={{ label: t(item.heading.label) }}
               text={t(item.text ?? "")}

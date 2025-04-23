@@ -4,7 +4,7 @@ import { device } from "@src/utils/device";
 
 const StyledCustomCarousel = styled.div`
   position: relative;
-  padding: 0 80px;
+  padding: 0 0px;
 
   .swiper-pagination {
     display: flex;
@@ -64,49 +64,64 @@ const StyledCustomCarousel = styled.div`
 
 const StyledCustomCarouselWrapper = styled.div`
   display: grid;
-  grid-template-columns: minmax(200px, 448px) minmax(200px, 480px);
+  grid-template-columns: minmax(auto, 440px) minmax(auto, 480px);
   column-gap: 32px;
+  padding-top: 72px;
+
+  /* match their panel height: about 320px + text area ~ 200px = ~520px */
+  min-height: 520px;
+  margin-bottom: 48px;
 
   @media ${device.tablet} {
-    grid-template-columns: initial;
-    row-gap: 32px;
+    grid-template-columns: 1fr;
+    text-align: center;
+    min-height: auto;
   }
 `;
 
 const StyledCustomCarouselImg = styled.div<{
   $imgUrl: ICustomCarouselItem["imgUrl"];
 }>`
-  padding-bottom: 57.59%;
-  background-image: url(${(props) => props.$imgUrl});
+  width: 550px;
+  margin: 0 auto;
+
+  /* aspect ratio – this keeps image contained */
+  padding-top: 57.6%; /* (height/width) × 100% */
+
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
+
+  background-image: url(${(p) => p.$imgUrl});
 
   @media ${device.tablet} {
     margin: 0 auto;
     padding-bottom: 0;
-    width: 100%;
-    max-width: 448px;
-    height: 254px;
+    width: 80vw;
+    height: 20vw;
     order: 2;
   }
 
   @media ${device.tabletS} {
-    padding-bottom: 48.107%;
+    padding-bottom: 20.107%;
     height: initial;
   }
 
   @media ${device.mobile} {
-    padding-bottom: 56.92%;
-    max-width: 100%;
+    padding-top: 56.9%;
   }
 `;
 
 const StyledCustomCarouselBody = styled.div`
-  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 90vw;
+  text-align: left;
 
   @media ${device.tablet} {
     padding-top: 0;
-    text-align: center;
+    width: 100vw;
     order: 1;
   }
 `;
@@ -121,18 +136,23 @@ const StyledCustomCarouselNumber = styled.div`
 `;
 
 const StyledCustomCarouselHeading = styled.div`
-  font-size: 17px;
-  font-weight: bold;
-  line-height: 33px;
-
-  @media ${device.mobile} {
-    font-size: 16px;
-    line-height: 24px;
-  }
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 16px;
 `;
 
 const StyledCustomCarouselParagraph = styled.p`
-  font-size: 15px;
+  font-size: 14px;
+  text-align: left;
+  line-height: 160%;
+
+  @media ${device.tablet} {
+    padding-top: 0;
+    text-align: start;
+    width: 100%;
+  }
 `;
 
 const StyledCustomCarouselButton = styled.button<{ $active?: boolean }>`
@@ -149,7 +169,7 @@ const StyledCustomCarouselButton = styled.button<{ $active?: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 
   img {
     width: 60px;
@@ -174,21 +194,20 @@ const StyledCustomCarouselButton = styled.button<{ $active?: boolean }>`
 const StyledCustomCarouselButtons = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 5rem; /* same as OnlyOffice’s icon spacing */
 
   @media (max-width: 768px) {
+    gap: 16px;
     flex-wrap: wrap;
-    gap: 0.75rem;
   }
 `;
 
 const StyledCustomCarouselParagraphLink = styled.a`
-  color: #e63946; /* starting with a red tone */
-  text-decoration: underline;
+  font-size: 14px;
   font-weight: 500;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  color: #ff6f3d;
+  text-decoration: underline;
+  transition: text-decoration 0.2s;
 
   &:hover {
     text-decoration: none;
@@ -198,17 +217,34 @@ const StyledCustomCarouselParagraphLink = styled.a`
 const StyledCustomCarouselList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  color: #1d1d1d;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.6;
+
+  li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 14px;
+  }
+  li::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 0.5em; /* vertically center bullet */
+    width: 6px;
+    height: 6px;
+    background: #ff6f3d;
+    transform: rotate(45deg);
+  }
 `;
 
 const StyledCustomCarouselListItem = styled.li`
   position: relative;
-  padding-left: 24px;
+  padding-left: 30px;
   margin-bottom: 8px;
   line-height: 1.6;
+  font-size: 14px;
 
   &::before {
     content: "";
@@ -217,7 +253,7 @@ const StyledCustomCarouselListItem = styled.li`
     top: 7px;
     width: 8px;
     height: 8px;
-    background-color: #f04c3e; /* ONLYOFFICE red */
+    background-color: #ff6f3d; /* ONLYOFFICE red */
     transform: rotate(45deg); /* makes it a diamond */
   }
 `;

@@ -50,7 +50,7 @@ const WhyWorkspace = () => {
           level={2}
           size={2}
           textAlign="center"
-          label={t("GetStartedAndChooseWhereToWork")}
+          label={t("WhyHeader")}
         />
 
         <ChooseSolution

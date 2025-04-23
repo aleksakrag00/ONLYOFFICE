@@ -82,99 +82,124 @@ const CustomCarousel = ({ id, className, items }: ICustomCarousel) => {
     },
   ];
 
-  return (
-    <StyledCustomCarousel id={id} className={className}>
-      <StyledCustomCarouselButtons>
-        {items.map((_, index) => (
-          <StyledCustomCarouselButton
-            key={index}
-            onClick={() => handleSlideChange(index)}
-            $active={activeIndex === index}
-          >
-            <img
-              src={`/images/templates/workspace/manage-processes/button${
-                index + 1
-              }.svg`}
-              alt={`Button ${index + 1}`}
-            />
-            <span>{t(it[index].button)}</span>
-          </StyledCustomCarouselButton>
-        ))}
-      </StyledCustomCarouselButtons>
+  const [isOpen, setIsOpen] = useState(false);
 
-      <Swiper
-        spaceBetween={32}
-        speed={500}
-        loop
-        autoHeight
-        modules={[Navigation, Pagination]}
-        navigation={{
-          prevEl: ".swiper-button-prev",
-          nextEl: ".swiper-button-next",
-        }}
-        onSwiper={(swiper) => {
-          swiperRef.current = { swiper };
-          setActiveIndex(swiper.realIndex);
-        }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+  return (
+    <>
+      <StyledCustomCarousel id={id} className={className}>
+        <StyledCustomCarouselButtons>
+          {items.map((_, index) => (
+            <StyledCustomCarouselButton
+              key={index}
+              onClick={() => handleSlideChange(index)}
+              $active={activeIndex === index}
+            >
+              <img
+                src={`/images/templates/workspace/manage-processes/button${
+                  index + 1
+                }.svg`}
+                alt={`Button ${index + 1}`}
+              />
+              <span>{t(it[index].button)}</span>
+            </StyledCustomCarouselButton>
+          ))}
+        </StyledCustomCarouselButtons>
+
+        <Swiper
+          spaceBetween={32}
+          speed={500}
+          loop
+          modules={[Navigation, Pagination]}
+          navigation={{
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+          }}
+          onSwiper={(swiper) => {
+            swiperRef.current = { swiper };
+            setActiveIndex(swiper.realIndex);
+          }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        >
+          {it.map((item, index) => (
+            <SwiperSlide key={index}>
+              <StyledCustomCarouselWrapper>
+                <StyledCustomCarouselBody>
+                  <StyledCustomCarouselHeading>
+                    {t(item.heading)}
+                  </StyledCustomCarouselHeading>
+                  <StyledCustomCarouselParagraph>
+                    <Trans
+                      i18nKey={item.paragraph}
+                      ns="workspace"
+                      components={[
+                        <StyledCustomCarouselParagraphLink
+                          href="https://www.onlyoffice.com/document-editor.aspx?from=workspace"
+                          key="1"
+                          rel="noopener noreferrer"
+                        />,
+                        <StyledCustomCarouselParagraphLink
+                          href="https://www.onlyoffice.com/spreadsheet-editor.aspx?from=workspace"
+                          key="2"
+                          rel="noopener noreferrer"
+                        />,
+                        <StyledCustomCarouselParagraphLink
+                          href="https://www.onlyoffice.com/slides.aspx?from=workspace"
+                          key="3"
+                          rel="noopener noreferrer"
+                        />,
+                        <StyledCustomCarouselParagraphLink
+                          href="https://www.onlyoffice.com/pdf-editor.aspx?from=workspace"
+                          key="4"
+                          rel="noopener noreferrer"
+                        />,
+                        <StyledCustomCarouselParagraphLink
+                          href="https://www.onlyoffice.com/form-creator.aspx?from=workspace"
+                          key="5"
+                          rel="noopener noreferrer"
+                        />,
+                      ]}
+                    />
+                  </StyledCustomCarouselParagraph>
+                  <StyledCustomCarouselList>
+                    {item.contentList.map((i, ind) => (
+                      <StyledCustomCarouselListItem key={ind}>
+                        {t(i)}
+                      </StyledCustomCarouselListItem>
+                    ))}
+                  </StyledCustomCarouselList>
+                  <StyledCustomCarouselParagraphLink href={item.otherLinks[0]}>
+                    {item.otherLinksLabel[0]}
+                  </StyledCustomCarouselParagraphLink>
+                  {item.otherLinksLabel[1] ? (
+                    <StyledCustomCarouselParagraphLink
+                      onClick={() => setIsOpen(true)}
+                    >
+                      {item.otherLinksLabel[1]}
+                    </StyledCustomCarouselParagraphLink>
+                  ) : null}
+                </StyledCustomCarouselBody>
+                <StyledCustomCarouselImg $imgUrl={item.imgUrl} />
+              </StyledCustomCarouselWrapper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </StyledCustomCarousel>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        maxWidth="1100px"
+        withCloseBtn
       >
-        {it.map((item, index) => (
-          <SwiperSlide key={index}>
-            <StyledCustomCarouselWrapper>
-              <StyledCustomCarouselBody>
-                <StyledCustomCarouselHeading>
-                  {t(item.heading)}
-                </StyledCustomCarouselHeading>
-                <StyledCustomCarouselParagraph>
-                  <Trans
-                    i18nKey={item.paragraph}
-                    ns="workspace"
-                    components={[
-                      <StyledCustomCarouselParagraphLink
-                        href="https://www.onlyoffice.com/document-editor.aspx?from=workspace"
-                        key="1"
-                        rel="noopener noreferrer"
-                      />,
-                      <StyledCustomCarouselParagraphLink
-                        href="https://www.onlyoffice.com/spreadsheet-editor.aspx?from=workspace"
-                        key="2"
-                        rel="noopener noreferrer"
-                      />,
-                      <StyledCustomCarouselParagraphLink
-                        href="https://www.onlyoffice.com/slides.aspx?from=workspace"
-                        key="3"
-                        rel="noopener noreferrer"
-                      />,
-                      <StyledCustomCarouselParagraphLink
-                        href="https://www.onlyoffice.com/pdf-editor.aspx?from=workspace"
-                        key="4"
-                        rel="noopener noreferrer"
-                      />,
-                      <StyledCustomCarouselParagraphLink
-                        href="https://www.onlyoffice.com/form-creator.aspx?from=workspace"
-                        key="5"
-                        rel="noopener noreferrer"
-                      />,
-                    ]}
-                  />
-                </StyledCustomCarouselParagraph>
-                <StyledCustomCarouselList>
-                  {item.contentList.map((i, ind) => (
-                    <StyledCustomCarouselListItem key={ind}>
-                      {t(i)}
-                    </StyledCustomCarouselListItem>
-                  ))}
-                </StyledCustomCarouselList>
-                <StyledCustomCarouselParagraphLink href={item.otherLinks[0]}>
-                  {item.otherLinksLabel[0]}
-                </StyledCustomCarouselParagraphLink>
-              </StyledCustomCarouselBody>
-              <StyledCustomCarouselImg $imgUrl={item.imgUrl} />
-            </StyledCustomCarouselWrapper>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </StyledCustomCarousel>
+        <StyledCustomWatchVideoModal>
+          <iframe
+            src="https://www.youtube.com/embed/RyQA4gYi6e4?si=cQvEq-0Kg4sF0Jb5"
+            frameBorder={0}
+            allow="encrypted-media"
+            allowFullScreen={true}
+          ></iframe>
+        </StyledCustomWatchVideoModal>
+      </Modal>
+    </>
   );
 };
 
